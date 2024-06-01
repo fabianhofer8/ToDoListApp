@@ -5,7 +5,7 @@ executors:
     macos:
       xcode: "12.5.1"
     environment:
-      RUBY_VERSION: "3.3.0"
+      RUBY_VERSION: "3.0.0"
 
 jobs:
   build-and-test:
@@ -18,9 +18,7 @@ jobs:
       - run:
           name: Install Ruby
           command: rvm install $RUBY_VERSION
-      - run:
-          name: Use Ruby
-          command: rvm use $RUBY_VERSION --default
+
       - run:
           name: Install Bundler
           command: gem install bundler -v 2.4.22
