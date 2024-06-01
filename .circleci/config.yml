@@ -1,13 +1,29 @@
 version: 2.1
-jobs:
-  build-and-test:
+
+executors:
+  macos-executor:
     macos:
       xcode: "12.5.1"
+    environment:
+      RUBY_VERSION: "3.3.0"
+
+jobs:
+  build-and-test:
+    executor: macos-executor
     steps:
       - checkout
       - run:
+          name: Install RVM
+          command: curl -sSL https://get.rvm.io | bash -s stable
+      - run:
+          name: Install Ruby
+          command: rvm install $RUBY_VERSION
+      - run:
+          name: Use Ruby
+          command: rvm use $RUBY_VERSION --default
+      - run:
           name: Install Bundler
-          command: sudo gem install bundler
+          command: gem install bundler -v 2.4.22
       - run:
           name: Install Gems
           command: bundle install
@@ -27,4 +43,3 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-#
