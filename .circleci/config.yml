@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     macos:
-      xcode: "15.4"
+      xcode: "12.5.1"
     steps:
       - checkout
       - run:
@@ -11,6 +11,8 @@ jobs:
       - run:
           name: Run Tests
           command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' test
+      - store_test_results:
+        path: test-results
 
 workflows:
   version: 2
