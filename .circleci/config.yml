@@ -1,21 +1,29 @@
 version: 2.1
 jobs:
-  build:
+  build-and-test:
     macos:
       xcode: "12.5.1"
     steps:
       - checkout
       - run:
-          name: Build Project
-          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' build
+          name: Install Bundler
+          command: sudo gem install bundler
       - run:
-          name: Run Tests
-          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' test
+          name: Install Gems
+          command: bundle install
+      - run:
+          name: Install CocoaPods
+          command: pod install --repo-update
+      - run:
+          name: Build and Test with Fastlane
+          command: bundle exec fastlane ios build_and_test
       - store_test_results:
-          path: test-results
+          path: fastlane/test_output
+      - store_artifacts:
+          path: fastlane/test_output
 
 workflows:
   version: 2
-  build_and_test:
+  build-and-test:
     jobs:
-      - build
+      - build-and-test
