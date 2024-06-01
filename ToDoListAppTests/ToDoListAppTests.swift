@@ -6,31 +6,60 @@
 //
 
 import XCTest
+import SwiftUI
+import Combine
 @testable import ToDoListApp
 
-final class ToDoListAppTests: XCTestCase {
+class ToDoListAppTests: XCTestCase {
+
+    var viewModel: ViewModel!
+    var cancellables: Set<AnyCancellable> = []
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewModel = ViewModel()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
+        cancellables = []
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testAddTask() throws {
+        // Given
+        let initialTaskCount = viewModel.tasks.count
+        
+        // When
+        viewModel.newTask = "Test Task"
+        viewModel.addTask()
+        
+        // Then
+        XCTAssertEqual(viewModel.tasks.count, initialTaskCount + 1)
+        XCTAssertEqual(viewModel.tasks.last?.name, "Test Task")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testToggleTaskCompletion() throws {
+        // Given
+        viewModel.newTask = "Test Task"
+        viewModel.addTask()
+        let taskIndex = viewModel.tasks.count - 1
+        
+        // When
+        let initialCompletionStatus = viewModel.tasks[taskIndex].isCompleted
+        viewModel.toggleTaskCompletion(at: taskIndex)
+        
+        // Then
+        XCTAssertNotEqual(viewModel.tasks[taskIndex].isCompleted, initialCompletionStatus)
     }
 
+    func testAddEmptyTask() throws {
+        // Given
+        let initialTaskCount = viewModel.tasks.count
+        
+        // When
+        viewModel.newTask = ""
+        viewModel.addTask()
+        
+        // Then
+        XCTAssertEqual(viewModel.tasks.count, initialTaskCount)
+    }
 }

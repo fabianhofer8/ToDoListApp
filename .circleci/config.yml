@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  build:
+    macos:
+      xcode: "15.4"
+    steps:
+      - checkout
+      - run:
+          name: Build Project
+          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' build
+      - run:
+          name: Run Tests
+          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
