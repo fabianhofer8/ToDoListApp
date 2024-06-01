@@ -17,11 +17,10 @@ jobs:
           command: curl -sSL https://get.rvm.io | bash -s stable
       - run:
           name: Install Ruby
-          command: rvm install $RUBY_VERSION
-
+          command: rbenv install 3.0.0
       - run:
           name: Install Bundler
-          command: gem install bundler -v 2.4.22
+          command: gem install bundler
       - run:
           name: Install Gems
           command: bundle install
