@@ -15,37 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios test
-
-```sh
-[bundle exec] fastlane ios test
-```
-
-Runs all the tests
-
-### ios build
-
-```sh
-[bundle exec] fastlane ios build
-```
-
-Build the app
-
 ### ios build_and_test
 
 ```sh
 [bundle exec] fastlane ios build_and_test
 ```
 
-Build and run tests
-
-### ios build_and_test2
-
-```sh
-[bundle exec] fastlane ios build_and_test2
-```
-
-Build and test the ToDoListApp scheme
+Build and test
 
 ----
 
