@@ -47,4 +47,7 @@ platform :ios do
       output_types: "junit"
     )
   end
+  
+  lane :tests do
+    build_app
 end
