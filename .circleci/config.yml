@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build-and-test:
+  build-build_and_test-test:
     macos:
       xcode: 14.0.1
     environment:
@@ -18,12 +18,7 @@ jobs:
           path: output/scan
 
 workflows:
-  build-test-adhoc:
+  version: 2
+  build_and_test:
     jobs:
-      - build-and-test
-      - adhoc:
-          filters:
-            branches:
-              only: development
-          requires:
-            - build-and-test
+      - build
