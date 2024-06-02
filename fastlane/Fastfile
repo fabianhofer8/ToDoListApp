@@ -16,7 +16,11 @@
 default_platform(:ios)
 
 platform :ios do
-  
+
+  before_all do
+    setup_circle_ci
+  end
+
   desc "Build and test"
   lane :build_and_test do
     build_app(
@@ -31,7 +35,7 @@ platform :ios do
     run_tests(
       scheme: "ToDoListApp",
       clean: true,
-      device: "iPhone 15"
+      device: "iPhone 13"
     )
     swiftlint
   end
