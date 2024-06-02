@@ -1,0 +1,25 @@
+{
+  "" : {
+    "const-values" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListApp-master.swiftconstvalues",
+    "dependencies" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListApp-master.d",
+    "diagnostics" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListApp-master.dia",
+    "emit-module-dependencies" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListApp-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListApp-master-emit-module.dia",
+    "swift-dependencies" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListApp-master.swiftdeps"
+  },
+  "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/ToDoListApp/ContentView.swift" : {
+    "index-unit-output-path" : "/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/ToDoListApp/ToDoListAppApp.swift" : {
+    "index-unit-output-path" : "/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListAppApp.o",
+    "llvm-bc" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListAppApp.bc",
+    "object" : "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/Objects-normal/arm64/ToDoListAppApp.o"
+  }
+}

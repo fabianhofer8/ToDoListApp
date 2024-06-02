@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
+options: "dbbd549b6121c92ed2869890ee702e941cbe024010679b4e8a4c650ad732c872"
+build_start_time: [1717350525, 620134000]
+build_end_time: [1717350531, 703123000]
+inputs:
+  "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/ToDoListApp/ContentView.swift": [1717233345, 803167028]
+  "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/ToDoListApp/ToDoListAppApp.swift": [1717158340, 917602777]
+  ? "/Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp/build/ToDoListApp.build/Release-iphoneos/ToDoListApp.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1717350489, 820309204]
