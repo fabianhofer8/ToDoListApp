@@ -1,23 +1,26 @@
 version: 2.1
 jobs:
-  build:
+  build-and-test:
     macos:
       xcode: "12.5.1"
+    working_directory: /Users/fabianhofer/Desktop/Mobile Computing/Master/2. Semester/CICD/Paper/ToDoListApp
+    environment:
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: test
+    shell: /bin/bash --login -o pipefail
     steps:
       - checkout
+      - run: bundle install
       - run:
-          name: Build Project
-          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' build
-      - run:
-          name: Run Tests
-          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' test
-      - store_test_results:
-        path: testResults
+          name: Fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
       - store_artifacts:
-          path: testResults
+          path: output
+      - store_test_results:
+          path: output/scan
 
 workflows:
   version: 2
-  build_and_test:
+  build-test-adhoc:
     jobs:
-      - build
+      - build-and-test
