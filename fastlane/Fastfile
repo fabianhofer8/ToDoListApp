@@ -26,7 +26,7 @@ platform :ios do
       skip_profile_detection: true,
       include_bitcode: false,
       include_symbols: false,
-      xcargs: "-destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5'"
+      xcargs: "-destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0'"
     )
     run_tests(
       scheme: "ToDoListApp",
