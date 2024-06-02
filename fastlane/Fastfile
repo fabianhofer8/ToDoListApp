@@ -25,7 +25,8 @@ platform :ios do
       skip_package_ipa: true,
       skip_profile_detection: true,
       include_bitcode: false,
-      include_symbols: false
+      include_symbols: false,
+      xcargs: "-allowProvisioningUpdates"
     )
     run_tests(
       scheme: "ToDoListApp",
