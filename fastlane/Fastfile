@@ -16,38 +16,21 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Runs all the tests"
-  lane :test do
-    scan(
-      scheme: "ToDoListApp",
-      output_directory: "./fastlane/test_output",
-      output_types: "junit"
-    )
-  end
-
-  desc "Build the app"
-  lane :build do
-    build_app(
-      scheme: "ToDoListApp",
-      clean: true,
-      output_directory: "./build"
-    )
-  end
-
-  desc "Build and run tests"
+  
+  desc "Build and test"
   lane :build_and_test do
     build_app(
       scheme: "ToDoListApp",
-      clean: true,
-      output_directory: "./build"
+      export_method: nil, 
+      skip_package_ipa: true,
+      skip_profile_detection: true,
+      include_bitcode: false,
+      include_symbols: false
     )
-    scan(
+    run_tests(
       scheme: "ToDoListApp",
-      output_directory: "./fastlane/test_output",
-      output_types: "junit"
+      clean: true,
+      device: "iPhone 15"
     )
   end
-  
-  lane :tests do
-    build_app
 end

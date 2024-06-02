@@ -39,13 +39,13 @@ Build the app
 
 Build and run tests
 
-### ios tests
+### ios build_and_test2
 
 ```sh
-[bundle exec] fastlane ios tests
+[bundle exec] fastlane ios build_and_test2
 ```
 
-
+Build and test the ToDoListApp scheme
 
 ----
 
