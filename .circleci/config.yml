@@ -1,42 +1,23 @@
 version: 2.1
-
-executors:
-  macos-executor:
+jobs:
+  build:
     macos:
       xcode: "12.5.1"
-    environment:
-      RUBY_VERSION: "3.0.0"
-
-jobs:
-  build-and-test:
-    executor: macos-executor
     steps:
       - checkout
       - run:
-          name: Install RVM
-          command: curl -sSL https://get.rvm.io | bash -s stable
+          name: Build Project
+          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' build
       - run:
-          name: Install Ruby
-          command: rvm install "ruby-3.0.0
-      - run:
-          name: Install Bundler
-          command: gem install bundler
-      - run:
-          name: Install Gems
-          command: bundle install
-      - run:
-          name: Install CocoaPods
-          command: pod install --repo-update
-      - run:
-          name: Build and Test with Fastlane
-          command: bundle exec fastlane ios build_and_test
+          name: Run Tests
+          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=17.5,name=iPhone 15 Pro' test
       - store_test_results:
-          path: fastlane/test_output
+        path: testResults
       - store_artifacts:
-          path: fastlane/test_output
+          path: testResults
 
 workflows:
   version: 2
-  build-and-test:
+  build_and_test:
     jobs:
-      - build-and-test
+      - build
