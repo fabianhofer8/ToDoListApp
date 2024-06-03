@@ -151,6 +151,7 @@ GEM
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     httpclient (2.8.3)
+    io-console (0.7.2)
     jmespath (1.6.2)
     json (2.7.2)
     jwt (2.8.1)
@@ -168,6 +169,10 @@ GEM
     plist (3.7.1)
     public_suffix (5.0.5)
     rake (13.2.1)
+    readline (0.0.4)
+      reline
+    reline (0.5.8)
+      io-console (~> 0.5)
     representable (3.2.0)
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
@@ -219,6 +224,7 @@ DEPENDENCIES
   abbrev
   fastlane
   mutex_m
+  readline
 
 BUNDLED WITH
    2.5.9
