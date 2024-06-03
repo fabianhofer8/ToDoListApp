@@ -3,7 +3,6 @@ jobs:
   build_and_test:
     macos:
       xcode: 14.2.0
-    resource_class: macos.m1.medium.gen1
     steps:
       - checkout
       - run: xcodebuild -version
