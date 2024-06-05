@@ -11,7 +11,7 @@ jobs:
           command: xcrun simctl list devices
       - run:
           name: Build Project
-          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp clean build
+          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp clean build -allowProvisioningUpdates
 
 workflows:
   version: 2
