@@ -11,7 +11,7 @@ jobs:
           command: xcrun simctl list devices
       - run:
           name: Build Project
-          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=16.2,name=iPhone 14' build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp -destination 'platform=iOS Simulator,OS=16.2,name:Any iOS Simulator Device' build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 workflows:
   version: 2
