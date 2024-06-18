@@ -3,15 +3,30 @@ jobs:
   build_and_test:
     macos:
       xcode: 14.2.0
+    environment:
+      BUNDLER_VERSION: 2.3.22
     steps:
       - checkout
+      - run:
+          name: Install rbenv
+          command: |
+            brew update
+            brew install rbenv
+            rbenv init
+      - run:
+          name: Install Ruby 3.3.0
+          command: |
+            rbenv install 3.3.0
+            rbenv global 3.3.0
+      - run: gem install bundler -v $BUNDLER_VERSION
+      - run: bundle install
       - run: xcodebuild -version
       - run:
           name: Show available destinations
           command: xcrun simctl list devices
       - run:
-          name: Fastlane test #Build Project
-          command: fastlane ios test #xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp clean build -allowProvisioningUpdates
+          name: Fastlane test
+          command: bundle exec fastlane ios test
 
 workflows:
   version: 2
