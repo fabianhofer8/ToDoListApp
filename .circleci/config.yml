@@ -1,45 +1,20 @@
-# .circleci/config.yml
 version: 2.1
 jobs:
-  build-and-test:
+  build_and_test:
     macos:
-      xcode: 14.0.1
-    environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: test
+      xcode: 14.2.0
     steps:
       - checkout
-      - run: bundle install
+      - run: xcodebuild -version
       - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-      - store_artifacts:
-          path: output
-      - store_test_results:
-          path: output/scan
-
-  adhoc:
-    macos:
-      xcode: 14.0.1
-    environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: adhoc
-    steps:
-      - checkout
-      - run: bundle install
+          name: Show available destinations
+          command: xcrun simctl list devices
       - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-      - store_artifacts:
-          path: output
+          name: Build Project
+          command: xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp clean build -allowProvisioningUpdates
 
 workflows:
-  build-test-adhoc:
+  version: 2
+  build_and_test:
     jobs:
-      - build-and-test
-      - adhoc:
-          filters:
-            branches:
-              only: development
-          requires:
-            - build-and-test
+      - build_and_test
