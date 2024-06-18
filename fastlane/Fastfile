@@ -7,9 +7,13 @@ platform :ios do
   end
 
   desc "Runs all the tests"
-  lane :tests do
-    run_tests(scheme: "ToDoListApp")
+  lane :test do
+    scan
   end
 
-  
+  desc "Ad-hoc build"
+  lane :adhoc do
+    match(type: "adhoc")
+    gym(export_method: "ad-hoc")
+  end
 end

@@ -1,62 +1,20 @@
 version: 2.1
 jobs:
-  build-and-test:
+  build_and_test:
     macos:
-      xcode: 14.0.1
-    environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: test
+      xcode: 14.2.0
     steps:
       - checkout
-      - run: bundle install
+      - run: xcodebuild -version
       - run:
-          name: Install Simulators
-          command: |
-            xcrun simctl list
-            xcrun simctl delete unavailable
-            xcodebuild -downloadAllPlatforms
+          name: Show available destinations
+          command: xcrun simctl list devices
       - run:
-          name: Update Fastlane
-          command: bundle update fastlane
-      - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-      - store_artifacts:
-          path: output
-      - store_test_results:
-          path: output/scan
-
-  adhoc:
-    macos:
-      xcode: 14.0.1
-    environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: adhoc
-    steps:
-      - checkout
-      - run: bundle install
-      - run:
-          name: Install Simulators
-          command: |
-            xcrun simctl list
-            xcrun simctl delete unavailable
-            xcodebuild -downloadAllPlatforms
-      - run:
-          name: Update Fastlane
-          command: bundle update fastlane
-      - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-      - store_artifacts:
-          path: output
+          name: Fastlane test #Build Project
+          command: fastlane ios test #xcodebuild -project ToDoListApp.xcodeproj -scheme ToDoListApp clean build -allowProvisioningUpdates
 
 workflows:
-  build-test-adhoc:
+  version: 2
+  build_and_test:
     jobs:
-      - build-and-test
-      - adhoc:
-          filters:
-            branches:
-              only: development
-          requires:
-            - build-and-test
+      - build_and_test
