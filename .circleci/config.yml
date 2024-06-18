@@ -1,4 +1,3 @@
-# .circleci/config.yml
 version: 2.1
 jobs:
   build-and-test:
@@ -10,6 +9,15 @@ jobs:
     steps:
       - checkout
       - run: bundle install
+      - run:
+          name: Install Simulators
+          command: |
+            xcrun simctl list
+            xcrun simctl delete unavailable
+            xcodebuild -downloadAllPlatforms
+      - run:
+          name: Update Fastlane
+          command: bundle update fastlane
       - run:
           name: Fastlane
           command: bundle exec fastlane $FASTLANE_LANE
@@ -27,6 +35,15 @@ jobs:
     steps:
       - checkout
       - run: bundle install
+      - run:
+          name: Install Simulators
+          command: |
+            xcrun simctl list
+            xcrun simctl delete unavailable
+            xcodebuild -downloadAllPlatforms
+      - run:
+          name: Update Fastlane
+          command: bundle update fastlane
       - run:
           name: Fastlane
           command: bundle exec fastlane $FASTLANE_LANE

@@ -8,12 +8,19 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan
+    scan(
+      devices: ["iPhone 11"], # Spezifiziere ein verfügbares Gerät
+      clean: true,
+      output_directory: ENV['FL_OUTPUT_DIR']
+    )
   end
 
   desc "Ad-hoc build"
   lane :adhoc do
     match(type: "adhoc")
-    gym(export_method: "ad-hoc")
+    gym(
+      export_method: "ad-hoc",
+      output_directory: ENV['FL_OUTPUT_DIR']
+    )
   end
 end
