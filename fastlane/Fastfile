@@ -7,20 +7,9 @@ platform :ios do
   end
 
   desc "Runs all the tests"
-  lane :test do
-    scan(
-      devices: ["iPhone 15 Pro"], # Spezifiziere ein verfügbares Gerät
-      clean: true,
-      output_directory: ENV['FL_OUTPUT_DIR']
-    )
+  lane :tests do
+    run_tests(scheme: "ToDoListApp")
   end
 
-  desc "Ad-hoc build"
-  lane :adhoc do
-    match(type: "adhoc")
-    gym(
-      export_method: "ad-hoc",
-      output_directory: ENV['FL_OUTPUT_DIR']
-    )
-  end
+  
 end
